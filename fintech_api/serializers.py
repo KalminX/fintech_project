@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'password']
+        fields = ['first_name', 'last_name', 'email', 'password', 'two_factor_enabled']
         extra_kwargs = {
                     "password": {"write_only": True},
                     "qr_code": {"read_only": True},
@@ -22,3 +22,10 @@ class UserSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField()
+
+class TwoFASerializer(serializers.Serializer):
+    user_id = serializers.UUIDField()
+
+class OTPVerifySerializer(serializers.Serializer):
+    user_id = serializers.UUIDField()
+    code = serializers.CharField(max_length=6)

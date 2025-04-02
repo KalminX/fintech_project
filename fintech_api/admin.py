@@ -21,7 +21,7 @@ class CustomUserAdmin(UserAdmin):
         (None, {'fields': ('email', 'password')}),
         (_('Personal Info'), {'fields': ('first_name', 'last_name', 'phone_number')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
-        (_('2FA Settings'), {'fields': ('two_factor_enabled', 'otpauth_url', 'otp_base32', 'qr_code', 'login_otp', 'login_otp_used', 'otp_created_at')}),
+        (_('2FA Settings'), {'fields': ('two_factor_enabled', 'otpauth_url', 'otp_base32', 'qr_code',)}),
         (_('Important Dates'), {'fields': ('created_at', 'updated_at')}),
     )
     
