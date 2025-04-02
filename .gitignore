@@ -1,0 +1,8 @@
+.env
+**/*/migrations/
+**/*/__pycache__/
+venv/
+qrcode/
+**/*/management/
+**/*/views.py
+.coverage
