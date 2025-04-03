@@ -18,7 +18,14 @@ Navigate into the project directory:
 cd fintech_project
 ```
 
-## Step 2: Set Up Virtual Environment
+## Step 2: Create a New Branch
+Before making any changes, create a new branch to work on:
+```
+git checkout -b your-branch-name
+```
+Replace `your-branch-name` with a descriptive name for your branch (e.g., `feature/setup`).
+
+## Step 3: Set Up Virtual Environment
 
 ### For Ubuntu
 #### Create a Virtual Environment
@@ -46,18 +53,18 @@ Activate the virtual environment:
 venv\Scripts\activate
 ```
 
-## Step 3: Configure Environment Variables
+## Step 4: Configure Environment Variables
 A template file named `.env.example` is provided in the repository. Complete the details for your `.env` file:
 1. Copy `.env.example` to a new file named `.env`.
 2. Fill in the required environment variables (e.g., database credentials, API keys) as per your setup.
 
-## Step 4: Install Dependencies
+## Step 5: Install Dependencies
 Install the project dependencies listed in `requirements.txt`:
 ```
 pip install -r requirements.txt
 ```
 
-## Step 5: Database Setup
+## Step 6: Database Setup
 Set up the database by creating and applying migrations.
 
 ### Make Migrations
@@ -72,7 +79,7 @@ Apply the migrations to set up the database:
 python3 manage.py migrate
 ```
 
-## Step 6: Create a Superuser
+## Step 7: Create a Superuser
 Create an admin user to access the Django admin interface:
 ```
 python3 manage.py createsuperuser
@@ -80,7 +87,7 @@ python3 manage.py createsuperuser
 
 Follow the prompts to set up your superuser credentials.
 
-## Step 7: Run the Application
+## Step 8: Run the Application
 Start the development server:
 ```
 python3 manage.py runserver
@@ -91,3 +98,4 @@ Visit `http://localhost:8000` in your browser to access the application.
 ## Notes
 - Ensure your virtual environment is activated before running any `python3 manage.py` commands.
 - For Windows, replace `python3` with `python` in all commands if `python3` is not recognized.
+- 
