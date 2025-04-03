@@ -10,6 +10,7 @@ class AuthTestCase(APITestCase):
         self.login_url = reverse('login')
         self.register_url = reverse('register')
         self.two_factor_enable = reverse('2fa-enable')
+        self.two_factor_disable = reverse('2fa-disable')
         self.generate_otp_url = reverse('generate-otp')
         self.verify_otp_url = reverse('verify-otp')
         self.user_data = {
@@ -83,6 +84,18 @@ class AuthTestCase(APITestCase):
         two_factor_response = self.client.post(self.two_factor_enable, {'user_id': response.data['user_id']})
         self.assertTrue(two_factor_response.data['two_factor_enabled'])
     
+    def test_disable_two_fa(self):
+        user_data = {
+            'first_name': 'kalmin',
+            'last_name': 'numzy',
+            'email': 'kalmin@gmail.com',
+            'password': 'kally123',
+            'two_factor_enabled': True
+        }
+        response = self.client.post(self.register_url, user_data, format='json')
+        two_factor_response = self.client.post(self.two_factor_disable, {'user_id': response.data['user_id']})
+        self.assertFalse(two_factor_response.data['two_factor_enabled'])
+    
     #################### Tests for 2fa #############################
     def test_enable_two_fa_if_already_enabled(self):
         user_data = {
@@ -107,6 +120,7 @@ class AuthTestCase(APITestCase):
         response = self.client.post(self.register_url, user_data, format='json')
         generate_otp_response = self.client.post(self.generate_otp_url, {'user_id': response.data['user_id']}, format='json')
         self.assertIsNotNone(generate_otp_response.data['code'])
+        self.assertIsNotNone(generate_otp_response.data['otp_url'])
     
     def test_verify_correct_otp(self):
         user_data = {
