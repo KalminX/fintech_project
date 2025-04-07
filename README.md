@@ -98,4 +98,3 @@ Visit `http://localhost:8000` in your browser to access the application.
 ## Notes
 - Ensure your virtual environment is activated before running any `python3 manage.py` commands.
 - For Windows, replace `python3` with `python` in all commands if `python3` is not recognized.
-- 
