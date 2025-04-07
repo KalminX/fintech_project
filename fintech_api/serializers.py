@@ -23,6 +23,9 @@ class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField()
 
+class LogoutSerializer(serializers.Serializer):
+    user_id = serializers.UUIDField()
+
 class TwoFASerializer(serializers.Serializer):
     user_id = serializers.UUIDField()
 
